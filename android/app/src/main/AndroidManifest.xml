@@ -2,7 +2,7 @@
     package="com.nurfajarismail.task_4">
    <application
         android:label="task_4"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_4/firstPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,8 +10,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
-        // home: MyHomePage(title: 'Flutter Demo Home Page'),
-        );
+      debugShowCheckedModeBanner: false,
+      home: TampilanAwal(),
+    );
   }
 }
