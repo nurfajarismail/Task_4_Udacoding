@@ -3,6 +3,8 @@ import 'dart:core';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:task_4/beritaPage.dart';
+import 'package:task_4/pageHome.dart';
 import 'package:task_4/registerPage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -16,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
   statusLogin _loginStatus = statusLogin.notSignIn;
   final _keyForm = GlobalKey<FormState>();
   String nUsername, nPassword;
-  // String url="http://10.200.104.78/flutter-server/login.php";
+
 // check ketika klik tombol login
   checkForm() {
     final form = _keyForm.currentState;
@@ -28,8 +30,8 @@ class _LoginPageState extends State<LoginPage> {
 
 // mengirim request dan menanggapinya
   submitDataLogin() async {
-    final responseData =
-        await http.post("http://10.200.104.78/flutter-server/login.php", body: {
+    final responseData = await http
+        .post("https://peternakanfajar.000webhostapp.com/login.php", body: {
       "username": nUsername,
       "password": nPassword,
     });
@@ -40,9 +42,6 @@ class _LoginPageState extends State<LoginPage> {
 // get data respon
     String dataUsername = data['username'];
     String dataEmail = data['email'];
-    String dataAlamat = data['alamat'];
-    String dataSex = data['sex'];
-    String dataFullname = data['full_name'];
     String dataTanggalDaftar = data['tgl_daftar'];
     String dataIdUser = data['id_user'];
 // cek value 1 atau 0
@@ -51,8 +50,8 @@ class _LoginPageState extends State<LoginPage> {
 // set status loginnya sebagai login
         _loginStatus = statusLogin.signIn;
 
-        saveDataPref(value, dataIdUser, dataUsername, dataEmail, dataAlamat,
-            dataSex, dataFullname, dataTanggalDaftar);
+        saveDataPref(
+            value, dataIdUser, dataUsername, dataEmail, dataTanggalDaftar);
       });
     } else if (value == 2) {
       print(pesan);
@@ -62,17 +61,13 @@ class _LoginPageState extends State<LoginPage> {
   }
 
 // method untuk soimpan share pref
-  saveDataPref(int value, String dIdUser, dUsername, dEmail, dAlamat, dSex,
-      dFullName, dCreated) async {
+  saveDataPref(int value, String dIdUser, dUsername, dEmail, dCreated) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     setState(() {
       sharedPreferences.setInt("value", value);
       sharedPreferences.setString("username", dUsername);
       sharedPreferences.setString("id_user", dIdUser);
       sharedPreferences.setString("email", dEmail);
-      sharedPreferences.setString("alamat", dAlamat);
-      sharedPreferences.setString("sex", dSex);
-      sharedPreferences.setString("full_name", dFullName);
       sharedPreferences.setString("tgl_daftar", dCreated);
     });
   }
@@ -208,7 +203,7 @@ class _LoginPageState extends State<LoginPage> {
         );
         break;
       case statusLogin.signIn:
-        //return PageHome(signout);
+        return PageHomeBerita();
         break;
     }
   }
