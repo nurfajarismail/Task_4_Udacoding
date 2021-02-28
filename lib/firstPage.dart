@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_4/loginPage.dart';
 import 'package:task_4/registerPage.dart';
 
 class TampilanAwal extends StatelessWidget {
@@ -30,8 +31,10 @@ class TampilanAwal extends StatelessWidget {
                 color: Colors.brown,
                 onPressed: () {
                   print("hello world");
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => RegisterPage()));
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => LoginPage()));
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => LoginPage()));
                 },
                 child: Text(
                   "Mulai",

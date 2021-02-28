@@ -203,7 +203,7 @@ class _LoginPageState extends State<LoginPage> {
         );
         break;
       case statusLogin.signIn:
-        return PageHomeBerita();
+        return PageHome(signOUt);
         break;
     }
   }
