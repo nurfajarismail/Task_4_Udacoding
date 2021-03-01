@@ -18,19 +18,15 @@ class _PageHomeBeritaState extends State<PageHomeBerita> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Apps Berita'),
-          backgroundColor: Colors.brown,
-        ),
         body: FutureBuilder<List>(
-          future: getData(),
-          builder: (context, snapshot) {
-            if (snapshot.hasError) print(snapshot.error);
-            return snapshot.hasData
-                ? ItemList(list: snapshot.data)
-                : Center(child: CircularProgressIndicator());
-          },
-        ));
+      future: getData(),
+      builder: (context, snapshot) {
+        if (snapshot.hasError) print(snapshot.error);
+        return snapshot.hasData
+            ? ItemList(list: snapshot.data)
+            : Center(child: CircularProgressIndicator());
+      },
+    ));
   }
 }
 

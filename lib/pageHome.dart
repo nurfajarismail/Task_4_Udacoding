@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'dart:async';
+import 'package:task_4/beritaPage.dart';
+import 'package:task_4/galeriPage.dart';
 
 class PageHome extends StatefulWidget {
   final VoidCallback signOut;
@@ -21,17 +20,17 @@ class _PageHomeState extends State<PageHome> {
   }
 
 //mengambil nilai dari shared preferences
-  String username = "", fullname = "";
+  String username = "";
   getDataPref() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     setState(() {
       username = sharedPreferences.getString("username");
-      fullname = sharedPreferences.getString("fullname");
     });
   }
 
   @override
   void initState() {
+// ignore: todo
 // TODO: implement initState
     super.initState();
     getDataPref();
@@ -40,22 +39,49 @@ class _PageHomeState extends State<PageHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Hi, ' + username),
-        automaticallyImplyLeading: false, //buat hilangin tombol back
-        backgroundColor: Colors.blueGrey,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.exit_to_app,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              signOut();
-            },
-          )
-        ],
-      ),
-    );
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              DrawerHeader(child: Center(child: Text(username))),
+              ListTile(
+                title: Text("Berita"),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => PageHomeBerita()));
+                },
+              ),
+              ListTile(
+                title: Text("Galeri"),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => GaleriPage()));
+                },
+              ),
+              ListTile(
+                title: Text("Kamus"),
+                onTap: () {
+                  Navigator.pushReplacementNamed(
+                      context, PageHomeBerita().toStringShort());
+                },
+              ),
+              ListTile(
+                title: Text("Log Out"),
+                onTap: () {
+                  signOut();
+                },
+              )
+            ],
+          ),
+        ),
+        appBar: AppBar(
+          //title: Text('Hi, ' + username),
+          ///buat hilangin tombol back
+          backgroundColor: Colors.blueGrey,
+        ),
+        body: PageHomeBerita());
   }
 }
