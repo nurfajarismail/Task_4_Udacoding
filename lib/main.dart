@@ -1,10 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:task_4/beritaPage.dart';
-
-import 'package:task_4/firstPage.dart';
-import 'package:task_4/loginPage.dart';
-import 'package:task_4/pageHome.dart';
-import 'package:task_4/registerPage.dart';
 import 'package:task_4/splashPage.dart';
 
 void main() {
