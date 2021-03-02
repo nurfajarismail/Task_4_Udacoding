@@ -43,9 +43,10 @@ class _HomePageState extends State<HomePage> {
 
         //
         appBar: AppBar(
-          //title: Text('Hi, ' + username),
+          title: Text('Selamat datang ' + username),
+
           ///buat hilangin tombol back
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: Colors.brown,
           actions: [
             IconButton(
               icon: Icon(Icons.exit_to_app),
@@ -57,8 +58,12 @@ class _HomePageState extends State<HomePage> {
         ),
         body: Center(
           child: Container(
-            child: ListView(
-              children: [KamusPage(), GaleriPage(), PageHomeBerita()],
+            child: Column(
+              children: [
+                KamusPage(),
+                GaleriPage(),
+                Expanded(child: PageHomeBerita())
+              ],
             ),
           ),
         ));

@@ -18,8 +18,10 @@ class _GaleriPageState extends State<GaleriPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+      padding: EdgeInsets.all(10),
       height: 200,
-      color: Colors.black,
+      // color: Colors.black,
       child: FutureBuilder<List>(
         future: getData(),
         builder: (context, snapshot) {
@@ -39,24 +41,25 @@ class ItemList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      scrollDirection: Axis.horizontal,
       itemCount: list.length,
       itemBuilder: (context, index) {
         return Container(
-          height: 200,
+          //height: 200,
           padding: EdgeInsets.all(10.0),
           child: GestureDetector(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return DetailBerita(list, index);
+                return DetailGaleri(list, index);
               }));
             },
             child: Container(
+              height: 200,
               child: Image.network(
                 'https://peternakanfajar.000webhostapp.com/' +
                     list[index]['gambar'],
-                fit: BoxFit.contain,
-                width: 60.0,
-                height: 60.0,
+                fit: BoxFit.fill,
+                height: 100.0,
               ),
             ),
           ),
@@ -67,21 +70,20 @@ class ItemList extends StatelessWidget {
 }
 
 // ignore: must_be_immutable
-class DetailBerita extends StatefulWidget {
+class DetailGaleri extends StatefulWidget {
   List list;
   int index;
-  DetailBerita(this.list, this.index);
+  DetailGaleri(this.list, this.index);
 
   @override
-  _DetailBeritaState createState() => _DetailBeritaState();
+  _DetailGaleriState createState() => _DetailGaleriState();
 }
 
-class _DetailBeritaState extends State<DetailBerita> {
+class _DetailGaleriState extends State<DetailGaleri> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        scrollDirection: Axis.horizontal,
         children: <Widget>[
           Image.network('https://peternakanfajar.000webhostapp.com/' +
               widget.list[widget.index]['gambar']),

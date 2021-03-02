@@ -18,8 +18,8 @@ class _PageHomeBeritaState extends State<PageHomeBerita> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
-      color: Colors.black,
+      //   height: 200,
+      // color: Colors.black,
       child: FutureBuilder<List>(
         future: getData(),
         builder: (context, snapshot) {
@@ -39,6 +39,7 @@ class ItemList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      scrollDirection: Axis.vertical,
       itemCount: list.length,
       itemBuilder: (context, index) {
         return Container(
