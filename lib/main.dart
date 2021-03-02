@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_4/splashPage.dart';
+import 'package:task_4/ui_loginreg/splashPage.dart';
 
 void main() {
   runApp(MyApp());

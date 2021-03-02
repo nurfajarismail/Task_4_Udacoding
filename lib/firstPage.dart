@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_4/loginPage.dart';
+import 'package:task_4/ui_loginreg/loginPage.dart';
 
 class TampilanAwal extends StatelessWidget {
   @override

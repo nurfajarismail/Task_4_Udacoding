@@ -3,9 +3,8 @@ import 'dart:core';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:task_4/beritaPage.dart';
-import 'package:task_4/pageHome.dart';
-import 'package:task_4/registerPage.dart';
+import 'package:task_4/body/homePage.dart';
+import 'package:task_4/ui_loginreg/registerPage.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -203,7 +202,7 @@ class _LoginPageState extends State<LoginPage> {
         );
         break;
       case statusLogin.signIn:
-        return PageHome(signOUt);
+        return HomePage(signOUt);
         break;
     }
   }

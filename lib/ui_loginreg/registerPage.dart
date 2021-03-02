@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:task_4/loginPage.dart';
+import 'package:task_4/ui_loginreg/loginPage.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
