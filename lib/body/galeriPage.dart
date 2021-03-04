@@ -83,36 +83,36 @@ class _DetailGaleriState extends State<DetailGaleri> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.brown,
+      ),
       body: ListView(
         children: <Widget>[
-          Image.network('https://peternakanfajar.000webhostapp.com/' +
-              widget.list[widget.index]['gambar']),
+          Container(
+            padding: EdgeInsets.all(10),
+            child: Image.network('https://peternakanfajar.000webhostapp.com/' +
+                widget.list[widget.index]['gambar']),
+          ),
           Container(
             padding: EdgeInsets.all(32.0),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Container(
-                        padding: EdgeInsets.only(bottom: 8.0),
-                        child: Text(
-                          widget.list[widget.index]['nama'],
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, color: Colors.brown),
-                        ),
-                      ),
-                    ],
+            child: Expanded(
+              child: Center(
+                child: Container(
+                  //padding: EdgeInsets.only(bottom: 8.0),
+                  child: Text(
+                    widget.list[widget.index]['nama'],
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.brown),
                   ),
                 ),
-              ],
+              ),
             ),
           ),
           Container(
             padding: EdgeInsets.all(32.0),
             child: Text(
               widget.list[widget.index]['isi'],
+              textAlign: TextAlign.justify,
               softWrap: true,
             ),
           )

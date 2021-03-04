@@ -127,6 +127,7 @@ class _DetailBeritaState extends State<DetailBerita> {
             padding: EdgeInsets.all(32.0),
             child: Text(
               widget.list[widget.index]['isi'],
+              textAlign: TextAlign.justify,
               softWrap: true,
             ),
           )

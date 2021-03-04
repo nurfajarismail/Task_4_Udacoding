@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:task_4/ui_loginreg/splashPage.dart';
 
 void main() {
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
       // home: RegisterPage(),
       //home: TampilanAwal(),
       home: SplashPage(),
+      //home: WelcomePage(),
     );
   }
 }
