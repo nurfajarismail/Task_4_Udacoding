@@ -59,17 +59,37 @@ class _RegisterPageState extends State<RegisterPage> {
         key: _keyForm,
         child: ListView(
           children: <Widget>[
-            Text(
-              '',
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 26.0,
-                  color: Colors.brown),
+            Center(
+              child: Container(
+                height: 200,
+                child: Image.asset(
+                  "assets/icon.png",
+                  // color: Colors.brown,
+                  scale: 2.0,
+                ),
+              ),
+            ),
+            Center(
+              child: Text(
+                'KANDANG',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 50.0,
+                    color: Colors.brown),
+              ),
+            ),
+            Center(
+              child: Text(
+                'Kandangku Kandangmu',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                    color: Colors.brown),
+              ),
             ),
             SizedBox(
               height: 20.0,
             ),
-
             Padding(
               padding: EdgeInsets.all(10.0),
               child: TextFormField(
@@ -90,7 +110,6 @@ class _RegisterPageState extends State<RegisterPage> {
                     )),
               ),
             ),
-
             Padding(
               padding: EdgeInsets.all(10.0),
               child: TextFormField(
@@ -127,15 +146,15 @@ class _RegisterPageState extends State<RegisterPage> {
                     hintText: 'Password',
                     labelText: 'Input Password',
                     border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0))),
+                        borderRadius: BorderRadius.circular(
+                      20.0,
+                    ))),
               ),
             ),
-//radio button
-
             Padding(
               padding: EdgeInsets.fromLTRB(10.0, 40.0, 10.0, 0),
               child: MaterialButton(
-                color: Colors.blueGrey,
+                color: Colors.brown,
                 textColor: Colors.white,
                 child: Text('Register'),
                 onPressed: () {

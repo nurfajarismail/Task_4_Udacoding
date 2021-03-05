@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:task_4/ui_loginreg/splashPage.dart';
 
 void main() {
@@ -12,11 +11,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      //home: PageHomeBerita(),
+      // home: PageHomeBerita(),
       // home: RegisterPage(),
       //home: TampilanAwal(),
       home: SplashPage(),
-      //home: WelcomePage(),
+      ////home: WelcomePage(),
     );
   }
 }
