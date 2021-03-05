@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:task_4/ui_loginreg/loginPage.dart';
@@ -42,6 +43,14 @@ class _RegisterPageState extends State<RegisterPage> {
 //cek value 1 atau 0
     if (value == 1) {
       setState(() {
+        Fluttertoast.showToast(
+          msg: "Register Berhasil",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.TOP,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.brown,
+          textColor: Colors.white,
+        );
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => LoginPage()));
       });

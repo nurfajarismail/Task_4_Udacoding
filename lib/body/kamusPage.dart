@@ -11,7 +11,7 @@ class KamusPage extends StatefulWidget {
 class _KamusPageState extends State<KamusPage> {
   Future<List> getData() async {
     final response = await http
-        .get("https://peternakanfajar.000webhostapp.com/get_berita.php");
+        .get("http://peternakanfajar.000webhostapp.com/get_kamus.php");
     return json.decode(response.body);
   }
 
@@ -55,7 +55,7 @@ class _ItemsState extends State<Items> {
     List filteredList = [];
     if (_controller.text != null && _controller.text.isNotEmpty) {
       widget.list.forEach((item) {
-        if (item['judul']
+        if (item['nama']
             .toString()
             .toLowerCase()
             .contains(_controller.text.toLowerCase())) filteredList.add(item);
@@ -91,7 +91,7 @@ class _ItemsState extends State<Items> {
                 },
                 child: Card(
                   child: ListTile(
-                      title: Text(filteredList[index]['judul'].toString())),
+                      title: Text(filteredList[index]['nama'].toString())),
                 ),
               );
             }),
@@ -115,13 +115,11 @@ class _DetailBeritaState extends State<DetailBerita> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.list[widget.index]['judul']),
+        title: Text(widget.list[widget.index]['nama']),
         backgroundColor: Colors.brown,
       ),
       body: ListView(
         children: <Widget>[
-          Image.network('https://peternakanfajar.000webhostapp.com/' +
-              widget.list[widget.index]['foto']),
           Container(
             padding: EdgeInsets.all(32.0),
             child: Row(
@@ -133,12 +131,11 @@ class _DetailBeritaState extends State<DetailBerita> {
                       Container(
                         padding: EdgeInsets.only(bottom: 8.0),
                         child: Text(
-                          widget.list[widget.index]['judul'],
+                          widget.list[widget.index]['nama'],
                           style: TextStyle(
                               fontWeight: FontWeight.bold, color: Colors.brown),
                         ),
                       ),
-                      Text(widget.list[widget.index]['tgl_berita'])
                     ],
                   ),
                 ),

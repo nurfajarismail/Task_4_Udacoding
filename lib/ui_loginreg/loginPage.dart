@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:core';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -55,7 +56,16 @@ class _LoginPageState extends State<LoginPage> {
     } else if (value == 2) {
       print(pesan);
     } else {
-      print(pesan);
+      Fluttertoast.showToast(
+        msg: "Username atau password salah",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.TOP,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.brown,
+        textColor: Colors.white,
+      );
+      //print(pesan);
+      //print("Login raiso");
     }
   }
 
